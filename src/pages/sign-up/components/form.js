@@ -11,8 +11,8 @@ const SingnUpForm = () => {
           <input type = "password" className="registration_form_input"  placeholder="Password *" value="" required />
           <input type = "password" className="registration_form_input"  placeholder="Confirm Password *" value="" required />
           <button className="registration_form_submit">Submit</button>
-
       </form>
+      <p><a href="/">Login</a></p>
     </div>
   );
 };
