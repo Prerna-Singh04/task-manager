@@ -17,6 +17,7 @@ const LoginForm = () => {
           value="Sign in"
           className="login_child_first_form_submit"
         />
+        <p>New here ?<a href="/sign-up">SignUp</a></p>
       </form>
     </div>
   );
