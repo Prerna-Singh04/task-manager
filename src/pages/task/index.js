@@ -1,8 +1,8 @@
 import React from 'react';
-
+import Tasktable from './Component/taskTable'
 class Task extends React.Component{
     render(){
-        return <p>task comp</p>
+        return <Tasktable/>
     }
 };
 

@@ -40,10 +40,11 @@
   margin-top: 150px;
   border: 1px solid rgb(235, 229, 229);
 }
-.login_child_first h6{
+.login_child_first h6 {
   padding: 10px;
   font-size: medium;
-  color:rgb(24, 23, 23);
+  text-align: center;
+  color: rgb(24, 23, 23);
   border-bottom: 1px solid rgb(235, 229, 229);
 }
 
@@ -79,16 +80,20 @@
   outline: 2px solid rgba(84, 84, 245, 0.9);
 }
 
-.login_child_first_form_span{
+.login_child_first_form_span {
   color: rgba(31, 31, 247, 0.9);
   font-weight: bolder;
   font-size: 11.5px;
   cursor: pointer;
   margin-left: 42%;
   border: 1px solid transparent;
-  
 }
 .login_child_first_form_submit {
+  width: 100%;
+  height: 30px;
+  border: 1px solid rgb(185, 184, 184);
+  border-radius: 7px;
+  margin: 5px 0px;
   background-color: rgba(36, 143, 36, 0.9);
   cursor: pointer;
   color: antiquewhite;
@@ -141,4 +146,11 @@
 
 .login_child_third ul li:nth-child(4) {
   color: rgb(20, 20, 20);
+}
+
+.login_child_first_form p{
+  padding: 10px;
+  font-size: x-small;
+  text-align: center;
+  color: rgb(24, 23, 23);
 }
