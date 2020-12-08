@@ -47,6 +47,7 @@ class SingnUpForm extends React.Component {
         // localStorage.removeItem("userDetails")
         localStorage.setItem("userDetails", JSON.stringify(userData));
         console.log(JSON.parse(localStorage.getItem("userDetails")));
+        window.location.href = window.location.protocol + "/"
     }
     
   };
