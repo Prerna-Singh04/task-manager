@@ -20,15 +20,17 @@ class LoginForm extends React.Component {
   manageSignIn = () => {
     const { Username, password } = this.state;
     const userLoginData = { Username, password };
-    console.log("userData to register is ===>", userLoginData);
-    let localData = JSON.parse(localStorage.getItem("userDetails"));
-    if (localData.userName === Username && localData.password === password) {
-      console.log("Data Matched...100%");
-      window.location.href = window.location.protocol + '/task'
-    } else {
-      console.log("Sorry Cann't login data didn't matched .");
-    }
+    window.location.href = window.location.protocol + '/task'
+    // console.log("userData to register is ===>", userLoginData);
+    // let localData = JSON.parse(localStorage.getItem("userDetails"));
+    // if (localData.userName === Username && localData.password === password) {
+    //   console.log("Data Matched...100%");
+    //   window.location.href = window.location.protocol + '/task'
+    // } else {
+    //   console.log("Sorry Cann't login data didn't matched .");
+    // }
   };
+
   render() {
     const stateData = this.state;
     return (
@@ -60,7 +62,7 @@ class LoginForm extends React.Component {
             Sign in
           </button>
           <p>
-            New here ?<a href="/sign-up">SignUp</a>
+            New here ?  <a href="/sign-up">SignUp</a>
           </p>
         </div>
       </div>

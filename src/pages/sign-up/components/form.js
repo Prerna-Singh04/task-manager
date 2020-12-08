@@ -23,6 +23,7 @@ class SingnUpForm extends React.Component {
   validation = () => {
     const { firstName, lastName, userName, password , confirmPassword } = this.state;
     console.log("hey", firstName, lastName, userName, password , confirmPassword)
+    
     if(firstName && userName && password && confirmPassword && (password === confirmPassword)){
         return true
     } else if( password !== confirmPassword){
@@ -30,11 +31,13 @@ class SingnUpForm extends React.Component {
     } else {
         this.setState({ errorMessage: "Please enter all required fields."})
     }
+
     setTimeout(()=> {
         this.setState({ errorMessage: null})
     },2000)
     return false
   }
+
   registerUser = () => {
     const isFormvalid = this.validation();
     if(isFormvalid){
