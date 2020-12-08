@@ -4,10 +4,12 @@ class SingnUpForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstName: null,
-      lastName: null,
-      userName: null,
-      password: null,
+      firstName: "",
+      lastName: "",
+      userName: "",
+      password: "",
+      confirmPassword: "",
+      errorMessage: null,
     };
   }
 
@@ -18,21 +20,37 @@ class SingnUpForm extends React.Component {
       [name]: value,
     });
   };
-
+  validation = () => {
+    const { firstName, lastName, userName, password , confirmPassword } = this.state;
+    if(firstName && userName && password && confirmPassword){
+        return true
+    } else {
+        this.setState({ errorMessage: "Please enter all required fields."})
+    }
+    setTimeout(()=> {
+        this.setState({ errorMessage: null})
+    },2000)
+  }
   registerUser = () => {
-    const { firstName, lastName, userName, password } = this.state;
-
-    const userData = { firstName, lastName, userName, password };
-    console.log("userData to register is ===>", userData);
-    // localStorage.removeItem("userDetails")
-    localStorage.setItem("userDetails", JSON.stringify(userData));
-    console.log(JSON.parse(localStorage.getItem("userDetails")));
+    const isFormvalid = this.validation();
+    if(isFormvalid){
+        const { firstName, lastName, userName, password } = this.state;
+        const userData = { firstName, lastName, userName, password };
+        console.log("userData to register is ===>", userData);
+        // localStorage.removeItem("userDetails")
+        localStorage.setItem("userDetails", JSON.stringify(userData));
+        console.log(JSON.parse(localStorage.getItem("userDetails")));
+    }
+    
   };
   render() {
     const stateData = this.state;
     return (
       <div className="registration">
         <h5>Sign Up</h5>
+        {stateData.errorMessage ? (
+            <p className="danger text-center">Please enter all required fields.</p>
+        ):null}
         <div className="registration_form">
           <input
             type="text"
@@ -83,7 +101,7 @@ class SingnUpForm extends React.Component {
             Submit
           </button>
         </div>
-        <p>
+        <p className="info-text">
           Already have an account ? <a href="/">Login</a>
         </p>
       </div>

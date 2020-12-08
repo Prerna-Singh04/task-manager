@@ -51,7 +51,7 @@
   background-color: rgba(36, 143, 36, 0.9);
 
 }
-.registration p {
+.registration .info-text {
   text-align: center;
   font-weight: normal;
   font-size: x-small;
