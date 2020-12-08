@@ -22,14 +22,18 @@ class SingnUpForm extends React.Component {
   };
   validation = () => {
     const { firstName, lastName, userName, password , confirmPassword } = this.state;
-    if(firstName && userName && password && confirmPassword){
+    console.log("hey", firstName, lastName, userName, password , confirmPassword)
+    if(firstName && userName && password && confirmPassword && (password === confirmPassword)){
         return true
+    } else if( password !== confirmPassword){
+        this.setState({ errorMessage: "password and confirm password are not same."})
     } else {
         this.setState({ errorMessage: "Please enter all required fields."})
     }
     setTimeout(()=> {
         this.setState({ errorMessage: null})
     },2000)
+    return false
   }
   registerUser = () => {
     const isFormvalid = this.validation();
@@ -49,7 +53,7 @@ class SingnUpForm extends React.Component {
       <div className="registration">
         <h5>Sign Up</h5>
         {stateData.errorMessage ? (
-            <p className="danger text-center">Please enter all required fields.</p>
+            <p className="danger text-center">{stateData.errorMessage}</p>
         ):null}
         <div className="registration_form">
           <input
@@ -90,6 +94,7 @@ class SingnUpForm extends React.Component {
           />
           <input
             type="password"
+            name="confirmPassword"
             className="registration_form_input"
             placeholder="Confirm Password *"
             onChange={this.handleForm}
