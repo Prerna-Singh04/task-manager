@@ -24,6 +24,7 @@ class LoginForm extends React.Component {
     let localData = JSON.parse(localStorage.getItem("userDetails"));
     if (localData.userName === Username && localData.password === password) {
       console.log("Data Matched...100%");
+      window.location.href = window.location.protocol + '/task'
     } else {
       console.log("Sorry Cann't login data didn't matched .");
     }
@@ -33,7 +34,7 @@ class LoginForm extends React.Component {
     return (
       <div className="login_child_first">
         <h6>Login</h6>
-        <form className="login_child_first_form">
+        <div className="login_child_first_form">
           <label>Username </label>
           <input
             type="text"
@@ -61,7 +62,7 @@ class LoginForm extends React.Component {
           <p>
             New here ?<a href="/sign-up">SignUp</a>
           </p>
-        </form>
+        </div>
       </div>
     );
   }
