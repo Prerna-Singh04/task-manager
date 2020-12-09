@@ -14,6 +14,9 @@ html{
 .success{
   color: #28a745;
 }
+.warning{
+  color: #ffc107;
+}
 .text-center{
   text-align: center;
 }
