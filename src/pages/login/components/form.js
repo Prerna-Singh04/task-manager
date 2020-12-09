@@ -5,10 +5,9 @@ class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      Username: "",
-      password: "",
+      userName: null,
+      password: null,
       errorMessage: null,
-
     };
   }
   handleForm = (event) => {
@@ -18,57 +17,61 @@ class LoginForm extends React.Component {
       [name]: value,
     });
   };
-
-  validation = ()=>{
-    const { Username, password } = this.state;
-    const userLoginData = { Username, password };
-    console.log("userData to register is ===>", userLoginData);
-    let localData = JSON.parse(localStorage.getItem("userDetails"));
-    if (localData.userName === Username && localData.password === password) {
-      // console.log("Data Matched...100%");
-      return true
-    }else if(localData.userName !== Username && localData.password !== password) {
-      this.setState({
-        errorMessage: "Please enter the valid UserName and Password."
-      })
+  
+  formValidation = () => {
+    const { userName, password } = this.state;
+    if(userName && password){
+      return true;
     }
-    else if(localData.userName !== Username){
-      this.setState({
-        errorMessage: "Please enter the valid UserName."
-      })
-    }else if(localData.password !== password){
-      this.setState({
-        errorMessage:"Please enter the valid password."
-      })
-    }else{
-      return false;
-    }
-    setTimeout(()=>{
-      this.setState({
-        errorMessage:null
-      })
+    this.setState({ errorMessage: "Please enter all required fields."});
+    setTimeout(()=> {
+      this.setState({ errorMessage: null})
     },2000)
   }
- 
+
   manageSignIn = () => {
-          const isLoginvalid = this.validation();
-      if(isLoginvalid){
-        window.location.href = window.location.protocol + '/task'
+    const { userName, password } = this.state;
+    const isAuthenticUSer = false;
+    const isLoginFormValid = this.formValidation();
+
+    if(isLoginFormValid){
+      // get all existing users
+      const ExistingUsers = JSON.parse(localStorage.getItem("users"));
+      
+      // if any user is not registered then users will not exist in local storage
+      if(ExistingUsers && ExistingUsers instanceof Array){
+        for(let i=0; i<ExistingUsers.length; i++){
+          const user = ExistingUsers[i];
+          if( (userName === user.userName) && (password === user.password)){
+            isAuthenticUSer = true;
+            window.location.href = window.location.protocol + '/task';
+            break;       
+          } 
+        }
+      }
+
+      if(!isAuthenticUSer || !ExistingUsers){
+        this.setState({ errorMessage: "User doesn't  exist."}) 
+        setTimeout(()=> {
+            this.setState({ errorMessage: null})
+        },2000)
       }
     }
-  
+  };
 
-  render(){
+  render() {
     const stateData = this.state;
     return (
       <div className="login_child_first">
         <h6>Login</h6>
-        {stateData.errorMessage?(<p className="errorMessage">{stateData.errorMessage}  </p>):null}
+        {stateData.errorMessage ? (
+            <p className="danger text-center">{stateData.errorMessage}</p>
+        ):null}
         <div className="login_child_first_form">
           <label>Username </label>
           <input
             type="text"
-            name="Username"
+            name="userName"
             autoComplete="off"
             value={stateData.Username}
             onChange={this.handleForm}
@@ -97,4 +100,5 @@ class LoginForm extends React.Component {
     );
   }
 }
+
 export default LoginForm;
