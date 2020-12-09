@@ -11,6 +11,9 @@ html{
 .danger{
   color: #F32013;
 }
+.success{
+  color: #28a745;
+}
 .text-center{
   text-align: center;
 }
