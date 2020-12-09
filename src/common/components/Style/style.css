@@ -1,0 +1,10 @@
+a {
+  text-decoration: none;
+  font-size: 18px;
+  /* border: 1px solid; */
+  color: black;
+}
+p {
+  margin: 10px 50px;
+  text-align: right;
+}

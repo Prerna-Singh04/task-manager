@@ -5,8 +5,10 @@ class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      Username: null,
-      password: null,
+      Username: "",
+      password: "",
+      errorMessage: null,
+
     };
   }
   handleForm = (event) => {
@@ -17,24 +19,51 @@ class LoginForm extends React.Component {
     });
   };
 
-  manageSignIn = () => {
+  validation = ()=>{
     const { Username, password } = this.state;
     const userLoginData = { Username, password };
     console.log("userData to register is ===>", userLoginData);
     let localData = JSON.parse(localStorage.getItem("userDetails"));
     if (localData.userName === Username && localData.password === password) {
-      console.log("Data Matched...100%");
-      window.location.href = window.location.protocol + '/task'
-    } else {
-      console.log("Sorry Cann't login data didn't matched .");
+      // console.log("Data Matched...100%");
+      return true
+    }else if(localData.userName !== Username && localData.password !== password) {
+      this.setState({
+        errorMessage: "Please enter the valid UserName and Password."
+      })
     }
-  };
+    else if(localData.userName !== Username){
+      this.setState({
+        errorMessage: "Please enter the valid UserName."
+      })
+    }else if(localData.password !== password){
+      this.setState({
+        errorMessage:"Please enter the valid password."
+      })
+    }else{
+      return false;
+    }
+    setTimeout(()=>{
+      this.setState({
+        errorMessage:null
+      })
+    },2000)
+  }
+ 
+  manageSignIn = () => {
+          const isLoginvalid = this.validation();
+      if(isLoginvalid){
+        window.location.href = window.location.protocol + '/task'
+      }
+    }
+  
 
-  render() {
+  render(){
     const stateData = this.state;
     return (
       <div className="login_child_first">
         <h6>Login</h6>
+        {stateData.errorMessage?(<p className="errorMessage">{stateData.errorMessage}  </p>):null}
         <div className="login_child_first_form">
           <label>Username </label>
           <input
@@ -68,5 +97,4 @@ class LoginForm extends React.Component {
     );
   }
 }
-
 export default LoginForm;

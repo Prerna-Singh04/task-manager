@@ -1,4 +1,5 @@
 import React from 'react';
+import './Style/style.css'
 
 const Header = (props) => {
     const { redirectUrl, name } = props;

@@ -20,6 +20,7 @@ class SingnUpForm extends React.Component {
       [name]: value,
     });
   };
+  
   validation = () => {
     const { firstName, lastName, userName, password , confirmPassword } = this.state;
     console.log("hey", firstName, lastName, userName, password , confirmPassword)

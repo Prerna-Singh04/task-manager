@@ -1,11 +1,10 @@
 import React from "react";
 import '../Style/style.css'
-// import Tasktablefields from "./taskTableFields";
+
 
 const Tasktable = () => {
   const taskData = [
     {
-      id: 1,
       taskName: "ABC",
       taskAssignee: "DEF",
       taskAssigner: "GHI",
@@ -14,7 +13,6 @@ const Tasktable = () => {
       taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
     },
     {
-      id: 2,
       taskName: "ABC",
       taskAssignee: "DEF",
       taskAssigner: "GHI",
@@ -23,7 +21,6 @@ const Tasktable = () => {
       taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
     },
     {
-      id: 3,
       taskName: "ABC",
       taskAssignee: "DEF",
       taskAssigner: "GHI",
@@ -32,7 +29,6 @@ const Tasktable = () => {
       taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
     },
     {
-      id: 4,
       taskName: "ABC",
       taskAssignee: "DEF",
       taskAssigner: "GHI",
@@ -41,7 +37,6 @@ const Tasktable = () => {
       taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
     },
     {
-        id: 4,
         taskName: "ABC",
         taskAssignee: "DEF",
         taskAssigner: "GHI",
@@ -50,7 +45,6 @@ const Tasktable = () => {
         taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
       },
       {
-        id: 4,
         taskName: "ABC",
         taskAssignee: "DEF",
         taskAssigner: "GHI",
@@ -59,7 +53,6 @@ const Tasktable = () => {
         taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
       },
       {
-        id: 4,
         taskName: "ABC",
         taskAssignee: "DEF",
         taskAssigner: "GHI",
@@ -68,19 +61,60 @@ const Tasktable = () => {
         taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
       },
       {
-        id: 4,
         taskName: "ABC",
         taskAssignee: "DEF",
         taskAssigner: "GHI",
         taskCreationDate: "04-09-2020",
         taskDeadlineDate: "09-09-2020",
         taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
-      },
+      },{
+        taskName: "ABC",
+        taskAssignee: "DEF",
+        taskAssigner: "GHI",
+        taskCreationDate: "04-09-2020",
+        taskDeadlineDate: "09-09-2020",
+        taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
+      },{
+        taskName: "ABC",
+        taskAssignee: "DEF",
+        taskAssigner: "GHI",
+        taskCreationDate: "04-09-2020",
+        taskDeadlineDate: "09-09-2020",
+        taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
+      },{
+        taskName: "ABC",
+        taskAssignee: "DEF",
+        taskAssigner: "GHI",
+        taskCreationDate: "04-09-2020",
+        taskDeadlineDate: "09-09-2020",
+        taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
+      },{
+        taskName: "ABC",
+        taskAssignee: "DEF",
+        taskAssigner: "GHI",
+        taskCreationDate: "04-09-2020",
+        taskDeadlineDate: "09-09-2020",
+        taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
+      },{
+        taskName: "ABC",
+        taskAssignee: "DEF",
+        taskAssigner: "GHI",
+        taskCreationDate: "04-09-2020",
+        taskDeadlineDate: "09-09-2020",
+        taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
+      },{
+        taskName: "ABC",
+        taskAssignee: "DEF",
+        taskAssigner: "GHI",
+        taskCreationDate: "04-09-2020",
+        taskDeadlineDate: "09-09-2020",
+        taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
+      }
   ];
 
   return (
     <table>
-      <tr>
+      <tr className="table-column">
         <th>Task Name</th>
         <th>Task Assignee</th>
         <th>Task Assigner</th>
