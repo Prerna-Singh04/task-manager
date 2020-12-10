@@ -5,7 +5,7 @@ class AddNewTask extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data:this.props.arrayDetails,
+      data: this.props.arrayDetails,
       taskid: "",
       taskName: "",
       taskAssignee: "",
@@ -16,7 +16,7 @@ class AddNewTask extends React.Component {
       successMessage: null,
       errorMessage: null,
     };
-    console.log("data is ",this.state.data)
+    console.log("data is ", this.state.data);
   }
   handleChange = (event) => {
     const name = event.target.name;
@@ -26,7 +26,8 @@ class AddNewTask extends React.Component {
     });
   };
   validation = () => {
-    const {taskid,
+    const {
+      taskid,
       taskName,
       taskAssignee,
       taskAssigner,
@@ -34,7 +35,8 @@ class AddNewTask extends React.Component {
       taskDeadlineDate,
       taskDescription,
     } = this.state;
-    if (taskid&&
+    if (
+      taskid &&
       taskName &&
       taskAssignee &&
       taskAssigner &&
@@ -52,28 +54,25 @@ class AddNewTask extends React.Component {
     return false;
   };
 
-  saveChange=()=>{
+  saveChange = () => {
     const isTaskFieldValid = this.validation();
-   // const isExistingTask = this.checkExistingTask();
+    // const isExistingTask = this.checkExistingTask();
 
-    if(isTaskFieldValid){
-      this.updateUserDB()
+    if (isTaskFieldValid) {
+      this.updateUserDB();
     }
-  }
-  
+  };
 
   checkExistingTask = () => {
     const { taskName } = this.state;
     const ExistingTask = JSON.parse(localStorage.getItem("tasks"));
 
-    // if no existing tasks return true
-    if (!ExistingTasks) {
+    if (!ExistingTask) {
       return true;
     }
 
-    // if existing tasks array exists check details
-    for (let i = 0; i < ExistingTasks.length; i++) {
-      const task = ExistingTasks[i];
+    for (let i = 0; i < ExistingTask.length; i++) {
+      const task = ExistingTask[i];
       if (taskName === task.taskName) {
         this.setState({ errorMessage: "Task already exist." });
         setTimeout(() => {
@@ -85,21 +84,24 @@ class AddNewTask extends React.Component {
     return true;
   };
 
-  // Update user database
   updateUserDB = () => {
     const ExistingTasks = JSON.parse(localStorage.getItem("tasks"));
-    const {taskName,
+    const {
+      taskName,
       taskAssignee,
       taskAssigner,
       taskCreationDate,
       taskDeadlineDate,
-      taskDescription,} = this.state;
-    const taskData = {taskName,
+      taskDescription,
+    } = this.state;
+    const taskData = {
+      taskName,
       taskAssignee,
       taskAssigner,
       taskCreationDate,
       taskDeadlineDate,
-      taskDescription, };
+      taskDescription,
+    };
     if (ExistingTasks && ExistingTasks instanceof Array) {
       ExistingTasks.push(taskData);
       localStorage.setItem("tasks", JSON.stringify(ExistingTasks));
@@ -118,7 +120,7 @@ class AddNewTask extends React.Component {
   render() {
     const stateData = this.state;
     return (
-      <div  className="addNewTask_main_div">
+      <div className="addNewTask_main_div">
         <div className="task_fields">
           <h5>Add new task</h5>
           {stateData.errorMessage ? (
@@ -177,7 +179,9 @@ class AddNewTask extends React.Component {
             value={stateData.taskDescription}
             onChange={this.handleChange}
           />
-          <button onClick={this.saveChange} className="submit_button">Add</button>
+          <button onClick={this.saveChange} className="submit_button">
+            Add
+          </button>
         </div>
       </div>
     );
