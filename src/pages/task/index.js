@@ -9,7 +9,7 @@ class Task extends React.Component {
     return (
       <div className="task-page">
         <div className="header-section">
-          <Header redirectUrl="/users" name="user"/>
+          <Header redirectUrl="/users" name="User"/>
         </div>
         <div className="task-section">
           <Tasktable />

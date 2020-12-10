@@ -1,13 +1,13 @@
 import React from 'react';
-import './style/style.css'
+import './Style/style.css'
 
 const Header = (props) => {
     const { redirectUrl, name } = props;
 
     const signout = () => {
-        const isUserLogedIn = localStorage.getItem('logedInUserData');
+        const isUserLogedIn = localStorage.getItem('logedInUserData');          // Doubt
         if(isUserLogedIn){
-            localStorage.removeItem('logedInUserData');
+            localStorage.removeItem('logedInUserData');                        //Doubt
             window.location.href = window.location.protocol + '/';
         }
     }

@@ -31,8 +31,8 @@ class LoginForm extends React.Component {
 
   manageSignIn = () => {
     const { userName, password } = this.state;
-    let isAuthenticUSer = false;
-    const isLoginFormValid = this.formValidation();
+    let isAuthenticUser = false;
+    const isLoginFormValid = this.formValidation();             //true
 
     if(isLoginFormValid){
       // get all existing users
@@ -44,15 +44,15 @@ class LoginForm extends React.Component {
           const user = ExistingUsers[i];
           if( (userName === user.userName) && (password === user.password)){
             const userData = { userName };
-            localStorage.setItem('logedInUserData', userName);
-            isAuthenticUSer = true;
+            localStorage.setItem('logedInUserData', userData);
+            isAuthenticUser = true;
             window.location.href = window.location.protocol + '/task';
             break;       
           } 
         }
       }
 
-      if(!isAuthenticUSer || !ExistingUsers){
+      if(!isAuthenticUser || !ExistingUsers){
         this.setState({ errorMessage: "User doesn't  exist."}) 
         setTimeout(()=> {
             this.setState({ errorMessage: null})
