@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+
+}
+.addNewTask_main_div {
+  
+  display: inline-block;
+  font-weight: lighter;
+  width: 100%;
+}
+.task_fields {
+  background: rgba(212, 212, 243, 0.4);
+  width: 30vw;
+  border: 1px solid rgb(197, 195, 195);
+  margin: auto;
+  display: grid;
+}
+h5 {
+  border-bottom: 1px solid rgb(214, 214, 214);
+  padding: 10px;
+  text-align: center;
+}
+label {
+  text-align: left;
+  padding: 5px 5px;
+}
+input {
+  height: 25px;
+  margin: 5px;
+  border: 1px solid rgb(238, 236, 236);
+  border-radius: 5px;
+  outline: none;
+  padding: 10px;
+}
+.submit_button{
+    height: 25px;
+    background-color: rgb(7, 179, 7);
+    border: 1px solid green;
+    color: white;
+    border-radius: 5px;
+
+    margin: 15px 5px;
+}
+.text-center{
+    width: 80%;
+    border: 1px solid;
+}
