@@ -31,7 +31,7 @@ class LoginForm extends React.Component {
 
   manageSignIn = () => {
     const { userName, password } = this.state;
-    const isAuthenticUSer = false;
+    let isAuthenticUSer = false;
     const isLoginFormValid = this.formValidation();
 
     if(isLoginFormValid){

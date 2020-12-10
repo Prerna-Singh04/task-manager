@@ -9,21 +9,21 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const App = () => {
   return(
-      <Router basename="/">
-        <Switch>
-          <Route exact path={process.env.PUBLIC_URL + "/"}>
-            <Login />
-          </Route>
-          <Route path={process.env.PUBLIC_URL + "/sign-up"}>
-            <SignUp />
-          </Route>
-          <Route path={process.env.PUBLIC_URL + "/task"}>
-            <Task />
-          </Route>
-          <Route path={process.env.PUBLIC_URL + "/users"}>
-            <Users />
-          </Route>
-        </Switch>
+    <Router basename="/">
+      <Switch>
+        <Route exact path='/'>
+          <Login />
+        </Route>
+        <Route path='/sign-up'>
+          <SignUp />
+        </Route>
+        <Route path='/task'>
+          <Task />
+        </Route>
+        <Route path='/users'>
+          <Users />
+        </Route>
+      </Switch>
     </Router>
   )
 }
