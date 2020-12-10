@@ -6,7 +6,6 @@ class AddNewTask extends React.Component {
     super(props);
     this.state = {
       data: this.props.arrayDetails,
-      taskid: "",
       taskName: "",
       taskAssignee: "",
       taskAssigner: "",
@@ -27,7 +26,6 @@ class AddNewTask extends React.Component {
   };
   validation = () => {
     const {
-      taskid,
       taskName,
       taskAssignee,
       taskAssigner,
@@ -36,7 +34,7 @@ class AddNewTask extends React.Component {
       taskDescription,
     } = this.state;
     if (
-      taskid &&
+     
       taskName &&
       taskAssignee &&
       taskAssigner &&
@@ -129,51 +127,51 @@ class AddNewTask extends React.Component {
           {stateData.successMessage ? (
             <p className="success text-center">{stateData.successMessage}</p>
           ) : null}
-          <label>Task Id(Unique)</label>
-          <input
-            type="text"
-            name="taskid"
-            value={stateData.taskid}
-            onChange={this.handleChange}
-          />
+         
 
-          <label>Task Name*</label>
+          <label className="task_label">Task Name*</label>
           <input
+            className="task_input"
             type="text"
             name="taskName"
             value={stateData.taskName}
             onChange={this.handleChange}
           />
-          <label>Task Assignee*</label>
+          <label className="task_label">Task Assignee*</label>
           <input
+            className="task_input"
             type="text"
             name="taskAssignee"
             value={stateData.taskAssignee}
             onChange={this.handleChange}
           />
-          <label>Task Assigner*</label>
+          <label className="task_label">Task Assigner*</label>
           <input
+            className="task_input"
             type="text"
             name="taskAssigner"
             value={stateData.taskAssigner}
             onChange={this.handleChange}
           />
-          <label>Task Creation Date*</label>
+          <label className="task_label">Task Creation Date*</label>
           <input
+            className="task_input"
             type="text"
             name="taskCreationDate"
             value={stateData.taskCreationDate}
             onChange={this.handleChange}
           />
-          <label>Task Deadline Date*</label>
+          <label className="task_label">Task Deadline Date*</label>
           <input
+            className="task_input"
             type="text"
             name="taskDeadlineDate"
             value={stateData.taskDeadlineDate}
             onChange={this.handleChange}
           />
-          <label>Task Description*</label>
+          <label className="task_label">Task Description*</label>
           <input
+            className="task_input"
             type="text"
             name="taskDescription"
             value={stateData.taskDescription}

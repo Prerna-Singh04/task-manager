@@ -6,100 +6,8 @@ import AddNewTask from "./addNewTask/addNewTask";
 Modal.setAppElement("#root");
 const Tasktable = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const taskData = [];
-  // const taskData = [
-  //   {
-  //     id: 1,
-  //     taskName: "ABC",
-  //     taskAssignee: "DEF",
-  //     taskAssigner: "GHI",
-  //     taskCreationDate: "04-09-2020",
-  //     taskDeadlineDate: "09-09-2020",
-  //     taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
-  //   },
-  //   {
-  //     id: 2,
-  //     taskName: "ABC",
-  //     taskAssignee: "DEF",
-  //     taskAssigner: "GHI",
-  //     taskCreationDate: "04-09-2020",
-  //     taskDeadlineDate: "09-09-2020",
-  //     taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
-  //   },
-  //   {
-  //     id: 3,
-  //     taskName: "ABC",
-  //     taskAssignee: "DEF",
-  //     taskAssigner: "GHI",
-  //     taskCreationDate: "04-09-2020",
-  //     taskDeadlineDate: "09-09-2020",
-  //     taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
-  //   },
-  //   {
-  //     id: 4,
-  //     taskName: "ABC",
-  //     taskAssignee: "DEF",
-  //     taskAssigner: "GHI",
-  //     taskCreationDate: "04-09-2020",
-  //     taskDeadlineDate: "09-09-2020",
-  //     taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
-  //   },
-  //   {
-  //     id: 5,
-  //     taskName: "ABC",
-  //     taskAssignee: "DEF",
-  //     taskAssigner: "GHI",
-  //     taskCreationDate: "04-09-2020",
-  //     taskDeadlineDate: "09-09-2020",
-  //     taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
-  //   },
-  //   {
-  //     id: 6,
-  //     taskName: "ABC",
-  //     taskAssignee: "DEF",
-  //     taskAssigner: "GHI",
-  //     taskCreationDate: "04-09-2020",
-  //     taskDeadlineDate: "09-09-2020",
-  //     taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
-  //   },
-  //   {
-  //     id: 7,
-  //     taskName: "ABC",
-  //     taskAssignee: "DEF",
-  //     taskAssigner: "GHI",
-  //     taskCreationDate: "04-09-2020",
-  //     taskDeadlineDate: "09-09-2020",
-  //     taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
-  //   },
-  //   {
-  //     id: 8,
-  //     taskName: "ABC",
-  //     taskAssignee: "DEF",
-  //     taskAssigner: "GHI",
-  //     taskCreationDate: "04-09-2020",
-  //     taskDeadlineDate: "09-09-2020",
-  //     taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
-  //   },
-  //   {
-  //     id: 9,
-  //     taskName: "ABC",
-  //     taskAssignee: "DEF",
-  //     taskAssigner: "GHI",
-  //     taskCreationDate: "04-09-2020",
-  //     taskDeadlineDate: "09-09-2020",
-  //     taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
-  //   },
-  //   {
-  //     id:10,
-  //     taskName: "ABC",
-  //     taskAssignee: "DEF",
-  //     taskAssigner: "GHI",
-  //     taskCreationDate: "04-09-2020",
-  //     taskDeadlineDate: "09-09-2020",
-  //     taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
-  //   },
-  // ];
-
+  const ExistingTasks = JSON.parse(localStorage.getItem("tasks"));
+  console.log(ExistingTasks)
   return (
     <div className="task_main_div">
       <button
@@ -121,7 +29,7 @@ const Tasktable = () => {
             Close
           </button>
         </div>
-        <AddNewTask arrayDetails={taskData} />
+        <AddNewTask />
       </Modal>
 
       <table className="task-table">
@@ -136,7 +44,7 @@ const Tasktable = () => {
           </tr>
         </thead>
         <tbody>
-          {taskData.map((item) => {
+          {ExistingTasks.map((item) => {
             return (
               <tr key={item.id}>
                 <td>{item.taskName}</td>
