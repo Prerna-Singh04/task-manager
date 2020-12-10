@@ -43,6 +43,8 @@ class LoginForm extends React.Component {
         for(let i=0; i<ExistingUsers.length; i++){
           const user = ExistingUsers[i];
           if( (userName === user.userName) && (password === user.password)){
+            const userData = { userName };
+            localStorage.setItem('logedInUserData', userName);
             isAuthenticUSer = true;
             window.location.href = window.location.protocol + '/task';
             break;       

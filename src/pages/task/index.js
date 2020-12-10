@@ -7,13 +7,13 @@ import Header from "../../common/components/header";
 class Task extends React.Component {
   render() {
     return (
-      <div>
-        <div className="header_task">
-        <Header redirectUrl="/users" name="User"/>
-        <p style={{textDecoration:"Underline"}}> Task Table</p>
-        <Header redirectUrl="/" name="Signout" />
+      <div className="task-page">
+        <div className="header-section">
+          <Header redirectUrl="/users" name="user"/>
         </div>
-        <Tasktable />
+        <div className="task-section">
+          <Tasktable />
+        </div>
       </div>
     );
   }

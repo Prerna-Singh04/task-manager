@@ -5,6 +5,7 @@ import '../Style/style.css'
 const Tasktable = () => {
   const taskData = [
     {
+      id: 1,
       taskName: "ABC",
       taskAssignee: "DEF",
       taskAssigner: "GHI",
@@ -13,6 +14,7 @@ const Tasktable = () => {
       taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
     },
     {
+      id: 2,
       taskName: "ABC",
       taskAssignee: "DEF",
       taskAssigner: "GHI",
@@ -21,6 +23,7 @@ const Tasktable = () => {
       taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
     },
     {
+      id: 3,
       taskName: "ABC",
       taskAssignee: "DEF",
       taskAssigner: "GHI",
@@ -29,6 +32,7 @@ const Tasktable = () => {
       taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
     },
     {
+      id: 4,
       taskName: "ABC",
       taskAssignee: "DEF",
       taskAssigner: "GHI",
@@ -37,83 +41,63 @@ const Tasktable = () => {
       taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
     },
     {
-        taskName: "ABC",
-        taskAssignee: "DEF",
-        taskAssigner: "GHI",
-        taskCreationDate: "04-09-2020",
-        taskDeadlineDate: "09-09-2020",
-        taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
-      },
-      {
-        taskName: "ABC",
-        taskAssignee: "DEF",
-        taskAssigner: "GHI",
-        taskCreationDate: "04-09-2020",
-        taskDeadlineDate: "09-09-2020",
-        taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
-      },
-      {
-        taskName: "ABC",
-        taskAssignee: "DEF",
-        taskAssigner: "GHI",
-        taskCreationDate: "04-09-2020",
-        taskDeadlineDate: "09-09-2020",
-        taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
-      },
-      {
-        taskName: "ABC",
-        taskAssignee: "DEF",
-        taskAssigner: "GHI",
-        taskCreationDate: "04-09-2020",
-        taskDeadlineDate: "09-09-2020",
-        taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
-      },{
-        taskName: "ABC",
-        taskAssignee: "DEF",
-        taskAssigner: "GHI",
-        taskCreationDate: "04-09-2020",
-        taskDeadlineDate: "09-09-2020",
-        taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
-      },{
-        taskName: "ABC",
-        taskAssignee: "DEF",
-        taskAssigner: "GHI",
-        taskCreationDate: "04-09-2020",
-        taskDeadlineDate: "09-09-2020",
-        taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
-      },{
-        taskName: "ABC",
-        taskAssignee: "DEF",
-        taskAssigner: "GHI",
-        taskCreationDate: "04-09-2020",
-        taskDeadlineDate: "09-09-2020",
-        taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
-      },{
-        taskName: "ABC",
-        taskAssignee: "DEF",
-        taskAssigner: "GHI",
-        taskCreationDate: "04-09-2020",
-        taskDeadlineDate: "09-09-2020",
-        taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
-      },{
-        taskName: "ABC",
-        taskAssignee: "DEF",
-        taskAssigner: "GHI",
-        taskCreationDate: "04-09-2020",
-        taskDeadlineDate: "09-09-2020",
-        taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
-      },{
-        taskName: "ABC",
-        taskAssignee: "DEF",
-        taskAssigner: "GHI",
-        taskCreationDate: "04-09-2020",
-        taskDeadlineDate: "09-09-2020",
-        taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
-      }
+      id: 5,
+      taskName: "ABC",
+      taskAssignee: "DEF",
+      taskAssigner: "GHI",
+      taskCreationDate: "04-09-2020",
+      taskDeadlineDate: "09-09-2020",
+      taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
+    },
+    {
+      id: 6,
+      taskName: "ABC",
+      taskAssignee: "DEF",
+      taskAssigner: "GHI",
+      taskCreationDate: "04-09-2020",
+      taskDeadlineDate: "09-09-2020",
+      taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
+    },
+    {
+      id: 7,
+      taskName: "ABC",
+      taskAssignee: "DEF",
+      taskAssigner: "GHI",
+      taskCreationDate: "04-09-2020",
+      taskDeadlineDate: "09-09-2020",
+      taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
+    },
+    {
+      id: 7,
+      taskName: "ABC",
+      taskAssignee: "DEF",
+      taskAssigner: "GHI",
+      taskCreationDate: "04-09-2020",
+      taskDeadlineDate: "09-09-2020",
+      taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
+    },
+    {
+      id: 8,
+      taskName: "ABC",
+      taskAssignee: "DEF",
+      taskAssigner: "GHI",
+      taskCreationDate: "04-09-2020",
+      taskDeadlineDate: "09-09-2020",
+      taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
+    },
+    {
+      id: 9,
+      taskName: "ABC",
+      taskAssignee: "DEF",
+      taskAssigner: "GHI",
+      taskCreationDate: "04-09-2020",
+      taskDeadlineDate: "09-09-2020",
+      taskDescription: "ABC DEF GHI JKL MNO PQR STUVW XYZ .",
+    }
   ];
 
   return (
-    <table>
+    <table className="task-table">
       <tr className="table-column">
         <th>Task Name</th>
         <th>Task Assignee</th>
