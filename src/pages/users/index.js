@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Style/index.css";
 import Header from "../../common/components/header";
 import Modal from "react-modal";
-import AddUser from "./Component/addNewUser";
+import AddUser from "./components/addNewUser";
 Modal.setAppElement("#root");
 const Users = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -41,7 +41,7 @@ const Users = () => {
           </tr>
         </thead>
         <tbody>
-          {usersData.map((item) => {
+          {usersData && usersData.map((item) => {
             return (
               <tr key={item.userName}>
                 <td>{item.firstName}</td>

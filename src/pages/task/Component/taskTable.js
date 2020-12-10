@@ -44,7 +44,7 @@ const Tasktable = () => {
           </tr>
         </thead>
         <tbody>
-          {ExistingTasks.map((item) => {
+          {ExistingTasks && ExistingTasks.map((item) => {
             return (
               <tr key={item.id}>
                 <td>{item.taskName}</td>
