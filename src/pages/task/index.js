@@ -1,7 +1,7 @@
 import React from "react";
 import "./Style/style.css";
 import LoginProtector from "../../common/components/LoginProtector";
-import Tasktable from "./Component/taskTable";
+import Tasktable from "./components/taskTable";
 import Header from "../../common/components/header";
 
 class Task extends React.Component {

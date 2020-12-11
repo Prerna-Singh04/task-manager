@@ -1,11 +1,17 @@
-* {
-  margin: 0;
-  padding: 0;
-  font-size: 14px;
-
+.add-task-btn-container{
+  display: flex;
+  justify-content: flex-end;
 }
+.add-task-btn-container button{
+    border: 1px solid rgb(209, 208, 208);
+    background: green;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 .addNewTask_main_div {
-  
   display: inline-block;
   font-weight: lighter;
   width: 100%;
@@ -35,12 +41,10 @@ input {
   padding: 10px;
 }
 .submit_button{
-    height: 25px;
     background-color: rgb(7, 179, 7);
     border: 1px solid green;
     color: white;
     border-radius: 5px;
-
     margin: 15px 5px;
 }
 .text-center{
