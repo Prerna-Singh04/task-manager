@@ -2,12 +2,13 @@
   background: #f0f2f5;
 }
 .task-section{
-  margin-right: 18px;
-}
+  justify-content: space-around;
+  margin-left: 20px;
+  margin-right: 20px;
 
-table {
+}
+.task-table {
   margin-top: 20px;
-  /* margin-right: 50px; */
   cursor: pointer;
   border-collapse: collapse;
   text-align: justify;
@@ -15,17 +16,17 @@ table {
   border: 1px solid #222;
 }
 
-tr:nth-child(even) {
+.table-column:nth-child(even) {
   background:#FAFAFA;
   color: rgb(0, 0, 0);
 }
-tr {
+.table-column {
   height: 7vh;
   text-align: center;
   border: 1px solid #DDD;
 }
-tr > th {
-  width: 15vw;
+.table-column > th {
+  width: 19vw;
   border-collapse: collapse;
 }
 

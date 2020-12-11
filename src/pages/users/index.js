@@ -7,23 +7,25 @@ import AddUser from "./components/addNewUser";
 Modal.setAppElement("#root");
 const Users = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const usersData = JSON.parse(localStorage.getItem("users")) || [] ;
+  const usersData = JSON.parse(localStorage.getItem("users")) || [];
   console.log(usersData);
   return (
     <div className="user_main_div">
       <Header redirectUrl="/task" name="Tasks" />
-      <button
-        onClick={() => setModalIsOpen(true)}
-        className="addUserModal_button"
-      >
-        + Add new user
-      </button>
+      <div className="newUser_button">
+        <button
+          onClick={() => setModalIsOpen(true)}
+          className="addUserModal_button"
+        >
+          + Add new user
+        </button>
+      </div>
       <Modal
         isOpen={modalIsOpen}
         shouldCloseOnOverlayClick={false}
         onRequestClose={() => setModalIsOpen(false)}
       >
-        <div>
+        <div className="addUserModal_close">
           <button
             className="addUserModal_close_button"
             onClick={() => setModalIsOpen(false)}
@@ -34,23 +36,25 @@ const Users = () => {
         <AddUser />
       </Modal>
       <table className="task-table">
-        <thead>
-          <tr className="table-column">
+        <thead className="user_table_head">
+          <tr  className="table-column">
             <th>First Name</th>
             <th>last Name</th>
             <th>userName</th>
           </tr>
         </thead>
         <tbody>
-          {usersData && usersData instanceof Array && usersData.map((item) => {
-            return (
-              <tr key={item.userName}>
-                <td>{item.firstName}</td>
-                <td>{item.lastName}</td>
-                <td>{item.userName}</td>
-              </tr>
-            );
-          })}
+          {usersData &&
+            usersData instanceof Array &&
+            usersData.map((item) => {
+              return (
+                <tr key={item.userName}  className="table-column">
+                  <td>{item.firstName}</td>
+                  <td>{item.lastName}</td>
+                  <td>{item.userName}</td>
+                </tr>
+              );
+            })}
         </tbody>
       </table>
     </div>

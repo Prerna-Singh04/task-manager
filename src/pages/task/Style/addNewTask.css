@@ -1,3 +1,6 @@
+*{
+  outline: none;
+}
 .add-task-btn-container{
   display: flex;
   justify-content: flex-end;
@@ -14,7 +17,7 @@
 .addNewTask_main_div {
   display: inline-block;
   font-weight: lighter;
-  width: 100%;
+  /* width: 100%; */
 }
 .task_fields {
   background: rgba(212, 212, 243, 0.4);
@@ -23,22 +26,21 @@
   margin: auto;
   display: grid;
 }
-h5 {
+.task_fields>h5 {
   border-bottom: 1px solid rgb(214, 214, 214);
   padding: 10px;
   text-align: center;
 }
-label {
+.task_label {
   text-align: left;
   padding: 5px 5px;
 }
-input {
+.task_input {
   height: 25px;
   margin: 5px;
   border: 1px solid rgb(238, 236, 236);
   border-radius: 5px;
-  outline: none;
-  padding: 10px;
+  padding: 12px;
 }
 .submit_button{
     background-color: rgb(7, 179, 7);
@@ -46,6 +48,7 @@ input {
     color: white;
     border-radius: 5px;
     margin: 15px 5px;
+    padding: 6px;
 }
 .text-center{
     width: 80%;

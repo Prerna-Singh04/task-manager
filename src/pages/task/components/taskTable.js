@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../style/style.css";
+import "../Style/style.css";
 import Modal from "react-modal";
 import AddNewTask from "./addNewTask";
 
@@ -11,7 +11,7 @@ const customStyles = {
     right: 'auto',
     bottom: 'auto',
     marginRight: '-50%',
-    transform: 'translate(-50%, -50%)'
+    transform: 'translate(-50%, -50%)',
   }
 };
 
