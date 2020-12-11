@@ -112,7 +112,7 @@ class AddNewTask extends React.Component {
     setTimeout(() => {
       this.setState({ successMessage: null });
       window.location.href = window.location.protocol + "/task";
-    }, 5000);
+    }, 100);
   };
 
   render() {
