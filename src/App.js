@@ -6,7 +6,6 @@ import Task from "../src/pages/task";
 import Users from "../src/pages/users";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import addNewUser from "./pages/users/Component/addNewUser";
 
 const App = () => {
   return (

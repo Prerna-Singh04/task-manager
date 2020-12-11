@@ -6,7 +6,7 @@ import AddNewTask from "./addNewTask/addNewTask";
 Modal.setAppElement("#root");
 const Tasktable = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const ExistingTasks = JSON.parse(localStorage.getItem("tasks"));
+  const ExistingTasks = JSON.parse(localStorage.getItem("tasks")) || [];
   console.log(ExistingTasks)
   return (
     <div className="task_main_div">
@@ -44,7 +44,7 @@ const Tasktable = () => {
           </tr>
         </thead>
         <tbody>
-          {ExistingTasks && ExistingTasks.map((item) => {
+          {ExistingTasks && ExistingTasks instanceof Array && ExistingTasks.map((item) => {
             return (
               <tr key={item.id}>
                 <td>{item.taskName}</td>

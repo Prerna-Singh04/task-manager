@@ -3,10 +3,11 @@ import "./Style/index.css";
 import Header from "../../common/components/header";
 import Modal from "react-modal";
 import AddUser from "./components/addNewUser";
+
 Modal.setAppElement("#root");
 const Users = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const usersData = JSON.parse(localStorage.getItem("users"));
+  const usersData = JSON.parse(localStorage.getItem("users")) || [] ;
   console.log(usersData);
   return (
     <div className="user_main_div">
@@ -41,7 +42,7 @@ const Users = () => {
           </tr>
         </thead>
         <tbody>
-          {usersData && usersData.map((item) => {
+          {usersData && usersData instanceof Array && usersData.map((item) => {
             return (
               <tr key={item.userName}>
                 <td>{item.firstName}</td>
