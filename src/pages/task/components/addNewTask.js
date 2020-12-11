@@ -108,7 +108,7 @@ class AddNewTask extends React.Component {
       localStorage.setItem("tasks", JSON.stringify(task));
     }
     this.setState({ successMessage: "Task created Successfully" });
-    // redirect to login after successful register
+    // redirect to task after successful register
     setTimeout(() => {
       this.setState({ successMessage: null });
       window.location.href = window.location.protocol + "/task";
