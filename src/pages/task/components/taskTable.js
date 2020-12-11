@@ -42,7 +42,7 @@ const Tasktable = () => {
         <tbody>
           {ExistingTasks && ExistingTasks instanceof Array && ExistingTasks.map((item) => {
             return (
-              <tr key={item.id}>
+              <tr key={item.id} className="table-column">
                 <td>{item.taskName}</td>
                 <td>{item.taskAssignee}</td>
                 <td>{item.taskAssigner}</td>

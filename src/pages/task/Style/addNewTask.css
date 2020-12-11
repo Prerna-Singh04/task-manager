@@ -17,7 +17,6 @@
 .addNewTask_main_div {
   display: inline-block;
   font-weight: lighter;
-  /* width: 100%; */
 }
 .task_fields {
   background: rgba(212, 212, 243, 0.4);
