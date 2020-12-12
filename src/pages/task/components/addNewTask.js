@@ -1,5 +1,9 @@
 import React from "react";
-import "../Style/addNewTask.css"
+import "../style/addNewTask.css"
+import Calendar from 'react-calendar';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import moment from 'moment';
 
 class AddNewTask extends React.Component {
   constructor(props) {
@@ -9,14 +13,16 @@ class AddNewTask extends React.Component {
       taskName: "",
       taskAssignee: "",
       taskAssigner: "",
-      taskCreationDate: "",
+      taskCreationDate: new Date(),
       taskDeadlineDate: "",
       taskDescription: "",
       successMessage: null,
       errorMessage: null,
+      deadlineDate: new Date(),
     };
     console.log("data is ", this.state.data);
   }
+  formatDate = (date) => moment(date).format('DD MMM YYYY hh:mm a');
   handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
@@ -29,8 +35,6 @@ class AddNewTask extends React.Component {
       taskName,
       taskAssignee,
       taskAssigner,
-      taskCreationDate,
-      taskDeadlineDate,
       taskDescription,
     } = this.state;
     if (
@@ -38,8 +42,6 @@ class AddNewTask extends React.Component {
       taskName &&
       taskAssignee &&
       taskAssigner &&
-      taskCreationDate &&
-      taskDeadlineDate &&
       taskDescription
     ) {
       return true;
@@ -92,12 +94,14 @@ class AddNewTask extends React.Component {
       taskDeadlineDate,
       taskDescription,
     } = this.state;
+    const taskCreationTime = this.formatDate(taskCreationDate);
+    const taskDeadline = this.formatDate(taskDeadlineDate);
     const taskData = {
       taskName,
       taskAssignee,
       taskAssigner,
-      taskCreationDate,
-      taskDeadlineDate,
+      taskCreationDate: taskCreationTime,
+      taskDeadlineDate: taskDeadline,
       taskDescription,
     };
     if (ExistingTasks && ExistingTasks instanceof Array) {
@@ -153,21 +157,14 @@ class AddNewTask extends React.Component {
             value={stateData.taskAssigner}
             onChange={this.handleChange}
           />
-          <label className="task_label">Task Creation Date*</label>
-          <input
-            className="task_input"
-            type="text"
-            name="taskCreationDate"
-            value={stateData.taskCreationDate}
-            onChange={this.handleChange}
-          />
           <label className="task_label">Task Deadline Date*</label>
-          <input
-            className="task_input"
-            type="text"
-            name="taskDeadlineDate"
-            value={stateData.taskDeadlineDate}
-            onChange={this.handleChange}
+          <DatePicker className="task_input" 
+            selected={stateData.deadlineDate} 
+            onChange={date => {
+              const isoDate = moment(date, 'ddd MMM DD YYYY HH:mm:ss GMT+-HH:mm').format('DD MMM YYYY hh:mm a');
+              console.log('isoDate is ===>', isoDate);
+              this.setState({ taskDeadlineDate: isoDate})
+            }} 
           />
           <label className="task_label">Task Description*</label>
           <input
@@ -178,7 +175,7 @@ class AddNewTask extends React.Component {
             onChange={this.handleChange}
           />
           <button onClick={this.saveChange} className="submit_button">
-            Add
+            Submit
           </button>
         </div>
       </div>

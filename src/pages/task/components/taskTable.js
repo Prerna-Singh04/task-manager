@@ -1,19 +1,9 @@
 import React, { useState } from "react";
-import "../Style/style.css";
+import "../style/style.css";
 import Modal from "react-modal";
 import AddNewTask from "./addNewTask";
 
 Modal.setAppElement("#root");
-const customStyles = {
-  content : {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-  }
-};
 
 const Tasktable = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -28,6 +18,22 @@ const Tasktable = () => {
           + Add new task
         </button>
       </div>
+      {/* Modal to add new task */}
+      <Modal
+        isOpen={modalIsOpen}
+        shouldCloseOnOverlayClick={false}
+        onRequestClose={() => setModalIsOpen(false)}
+      >
+        <div className="addtaskModal_close">
+          <button
+            className="addtaskModal_close_button"
+            onClick={() => setModalIsOpen(false)}
+          >
+            Close
+          </button>
+        </div>
+        <AddNewTask />
+      </Modal>
       <table className="task-table">
         <thead>
           <tr className="table-column">
@@ -54,23 +60,6 @@ const Tasktable = () => {
           })}
         </tbody>
       </table>
-      {/* Modal to add new task */}
-      <Modal
-        isOpen={modalIsOpen}
-        shouldCloseOnOverlayClick={false}
-        onRequestClose={() => setModalIsOpen(false)}
-        style={customStyles}
-      >
-        <div>
-          <button
-            className="addUserModal_close_button"
-            onClick={() => setModalIsOpen(false)}
-          >
-            Close
-          </button>
-        </div>
-        <AddNewTask />
-      </Modal>
     </div>
   );
 };
