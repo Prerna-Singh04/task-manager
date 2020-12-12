@@ -3,6 +3,7 @@ import "./Style/index.css";
 import Header from "../../common/components/header";
 import Modal from "react-modal";
 import AddUser from "./components/addNewUser";
+import LoginProtector from '../../common/components/LoginProtector';
 
 Modal.setAppElement("#root");
 const Users = () => {
@@ -61,4 +62,4 @@ const Users = () => {
   );
 };
 
-export default Users;
+export default LoginProtector(Users);
