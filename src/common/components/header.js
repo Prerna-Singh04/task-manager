@@ -5,9 +5,9 @@ const Header = (props) => {
     const { redirectUrl, name } = props;
 
     const signout = () => {
-        const isUserLogedIn = localStorage.getItem('logedInUserData');          // Doubt
+        const isUserLogedIn = localStorage.getItem('logedInUserData');       
         if(isUserLogedIn){
-            localStorage.removeItem('logedInUserData');                        //Doubt
+            localStorage.removeItem('logedInUserData');
             window.location.href = window.location.protocol + '/';
         }
     }

@@ -11,10 +11,11 @@ const LoginProtector = (WrappedComponent) => {
     }
 
     render() {
-      return this.state.isUserLogedin ? <WrappedComponent /> : <Login />;
+      const loginUserData = localStorage.getItem("logedInUserData")
+ 
+      return loginUserData ? <WrappedComponent /> : <Login />;
     }
   }
-
   return LoginRequired;
 };
 

@@ -34,6 +34,7 @@ const Tasktable = () => {
         </div>
         <AddNewTask />
       </Modal>
+      
       <table className="task-table">
         <thead>
           <tr className="table-column">
@@ -48,7 +49,7 @@ const Tasktable = () => {
         <tbody>
           {ExistingTasks && ExistingTasks instanceof Array && ExistingTasks.map((item) => {
             return (
-              <tr key={item.taskName} className="table-column">
+              <tr key={item.id} className="table-column">
                 <td>{item.taskName}</td>
                 <td>{item.taskAssignee}</td>
                 <td>{item.taskAssigner}</td>

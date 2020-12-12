@@ -1,6 +1,5 @@
 import React from "react";
 import "../style/addNewTask.css"
-import Calendar from 'react-calendar';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import moment from 'moment';
@@ -56,8 +55,6 @@ class AddNewTask extends React.Component {
 
   saveChange = () => {
     const isTaskFieldValid = this.validation();
-    // const isExistingTask = this.checkExistingTask();
-
     if (isTaskFieldValid) {
       this.updateUserDB();
     }
@@ -85,7 +82,7 @@ class AddNewTask extends React.Component {
   };
 
   updateUserDB = () => {
-    const ExistingTasks = JSON.parse(localStorage.getItem("tasks"));
+    const ExistingTasks = JSON.parse(localStorage.getItem("tasks")) || [];
     const {
       taskName,
       taskAssignee,
@@ -103,6 +100,7 @@ class AddNewTask extends React.Component {
       taskCreationDate: taskCreationTime,
       taskDeadlineDate: taskDeadline,
       taskDescription,
+      id: ExistingTasks.length + 1,
     };
     if (ExistingTasks && ExistingTasks instanceof Array) {
       ExistingTasks.push(taskData);
@@ -162,7 +160,6 @@ class AddNewTask extends React.Component {
             selected={stateData.deadlineDate} 
             onChange={date => {
               const isoDate = moment(date, 'ddd MMM DD YYYY HH:mm:ss GMT+-HH:mm').format('DD MMM YYYY hh:mm a');
-              console.log('isoDate is ===>', isoDate);
               this.setState({ taskDeadlineDate: isoDate})
             }} 
           />
