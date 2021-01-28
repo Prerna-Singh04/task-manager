@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  letter-spacing: 0.9px;
+}
+
+$borderBottom: 1px solid rgb(235, 229, 229);
+$backgroundColor: rgba(230, 230, 255, 0.5);
+$borderRadius: 5px;
+$border: 1px solid rgb(235, 229, 229);
+$space: 10px;
+$buttonColor: rgb(7, 109, 7);
+
+@mixin transform($align) {
+  text-align: $align;
+  font-size: 18px;
+  color: rgb(24, 23, 23);
+  border-radius: 5px;
+  font-family: auto;
+}
+
+.login {
+  @include transform(center);
+  margin: 100px auto;
+  width: 25%;
+  background-color: $backgroundColor;
+  border: $border;
+
+  h6 {
+    @include transform(center);
+    border-bottom: $borderBottom;
+    padding: 10px;
+  }
+  .danger {
+    margin: auto;
+    color: red;
+  }
+  .login_form {
+    @include transform(left);
+    margin: auto;
+    display: block;
+    padding: $space;
+
+    .form_label {
+      text-align: left;
+      margin: $space;
+    }
+    .form_input {
+      @include transform(center);
+      width: 95%;
+      margin: 2.5%;
+      border: $border;
+      height: 25px;
+    }
+    .form_submit {
+      @include transform(center);
+      width: 95%;
+      padding: 3px;
+      margin: $space;
+      border: $border;
+      background: $buttonColor;
+      color: white;
+    }
+  }
+  .signup_redirect {
+    margin-top: $space;
+    padding: $space;
+    border-top: $borderBottom;
+    a {
+      font-size: 15px;
+    }
+  }
+}

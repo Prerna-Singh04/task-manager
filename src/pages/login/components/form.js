@@ -1,5 +1,6 @@
 import React from "react";
-import "../styles/Login.css";
+// import "../styles/Login.css";
+import "../../../scss/login.scss";
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -17,45 +18,45 @@ class LoginForm extends React.Component {
       [name]: value,
     });
   };
-  
+
   formValidation = () => {
     const { userName, password } = this.state;
-    if(userName && password){
+    if (userName && password) {
       return true;
     }
-    this.setState({ errorMessage: "Please enter all required fields."});
-    setTimeout(()=> {
-      this.setState({ errorMessage: null})
-    },2000)
-  }
+    this.setState({ errorMessage: "Please enter all required fields." });
+    setTimeout(() => {
+      this.setState({ errorMessage: null });
+    }, 2000);
+  };
 
   manageSignIn = () => {
     const { userName, password } = this.state;
     let isAuthenticUser = false;
-    const isLoginFormValid = this.formValidation();             //true
+    const isLoginFormValid = this.formValidation(); //true
 
-    if(isLoginFormValid){
+    if (isLoginFormValid) {
       // get all existing users
       const ExistingUsers = JSON.parse(localStorage.getItem("users"));
-      
+
       // if any user is not registered then users will not exist in local storage
-      if(ExistingUsers && ExistingUsers instanceof Array){
-        for(let i=0; i<ExistingUsers.length; i++){
+      if (ExistingUsers && ExistingUsers instanceof Array) {
+        for (let i = 0; i < ExistingUsers.length; i++) {
           const user = ExistingUsers[i];
-          if( (userName === user.userName) && (password === user.password)){
-            localStorage.setItem('logedInUserData', userName);
+          if (userName === user.userName && password === user.password) {
+            localStorage.setItem("logedInUserData", userName);
             isAuthenticUser = true;
-            window.location.href = window.location.protocol + '/task';
-            break;       
-          } 
+            window.location.href = window.location.protocol + "/task";
+            break;
+          }
         }
       }
 
-      if(!isAuthenticUser || !ExistingUsers){
-        this.setState({ errorMessage: "User doesn't  exist."}) 
-        setTimeout(()=> {
-            this.setState({ errorMessage: null})
-        },2000)
+      if (!isAuthenticUser || !ExistingUsers) {
+        this.setState({ errorMessage: "User doesn't  exist." });
+        setTimeout(() => {
+          this.setState({ errorMessage: null });
+        }, 2000);
       }
     }
   };
@@ -63,14 +64,17 @@ class LoginForm extends React.Component {
   render() {
     const stateData = this.state;
     return (
-      <div className="login_child_first">
+      // <div className="login_child_first">
+      <div className="login">
         <h6>Login</h6>
         {stateData.errorMessage ? (
-            <p className="danger text-center">{stateData.errorMessage}</p>
-        ):null}
-        <div className="login_child_first_form">
-          <label>Username </label>
+          <p className="danger">{stateData.errorMessage}</p>
+        ) : null}
+        {/* <div className="login_child_first_form"> */}
+        <div className="login_form">
+          <label className="form_label">Username*</label>
           <input
+            className="form_input"
             type="text"
             name="userName"
             autoComplete="off"
@@ -78,8 +82,9 @@ class LoginForm extends React.Component {
             onChange={this.handleForm}
             required
           />
-          <label>Password </label>
+          <label className="form_label">Password* </label>
           <input
+            className="form_input"
             type="password"
             name="password"
             autoComplete="off"
@@ -88,15 +93,16 @@ class LoginForm extends React.Component {
             required
           />
           <button
-            className="login_child_first_form_submit"
+            className="form_submit"
             onClick={this.manageSignIn}
           >
             Sign in
           </button>
-          <p>
-            New here ?  <a href="/sign-up">SignUp</a>
-          </p>
+          
         </div>
+        <p className='signup_redirect'>
+            New here ? <a href="/sign-up">SignUp</a>
+          </p>
       </div>
     );
   }

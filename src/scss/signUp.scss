@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  box-sizing: border-box;
+  font-family: auto;
+}
+
+$space: 10px;
+$fontSize: 18px;
+$border: 1px solid rgb(218, 216, 216);
+$backgroundColor: rgba(230, 230, 255, 0.5);
+$buttonColor: rgb(40, 117, 40);
+
+@mixin signUp($textAlign) {
+  border-radius: 5px;
+  font-size: $fontSize;
+  text-align: $textAlign;
+}
+.registration_page {
+  @include signUp(center);
+  width: 32vw;
+  border: $border;
+  margin: 100px auto;
+  background-color: $backgroundColor;
+  .headline {
+    font-size: $fontSize;
+    border-bottom: $border;
+    padding: $space;
+  }
+  .danger,
+  .success {
+    color: red;
+    margin: auto;
+    padding: $space;
+  }
+  .success {
+    color: rgb(106, 106, 235);
+  }
+  .form {
+    border-bottom: $border;
+    padding-bottom: $space;
+  }
+  .registration_input {
+    @include signUp(left);
+    width: 90%;
+    height: 30px;
+    padding-left: $space;
+    border: $border;
+    margin: $space;
+
+    &::placeholder {
+      color: rgb(84, 84, 94);
+    }
+  }
+  .registration_submit {
+    @include signUp(center);
+    width: 90%;
+    border: $border;
+    background: $buttonColor;
+    color: white;
+    height: 30px;
+    margin: $space;
+  }
+  .info_text {
+    @include signUp(center);
+    margin: $space;
+    a {
+      font-size: 15px;
+    }
+  }
+}

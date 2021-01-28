@@ -1,5 +1,5 @@
 import React from "react";
-import "./style/style.css";
+import "./Style/style.css";
 import LoginProtector from "../../common/components/LoginProtector";
 import Tasktable from "./components/taskTable";
 import Header from "../../common/components/header";

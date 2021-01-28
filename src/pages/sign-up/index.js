@@ -1,5 +1,4 @@
 import React from 'react';
-import './styles/signUp.css';
 import SingnUpForm from './components/form';
 
 

@@ -1,5 +1,5 @@
 import React from "react";
-import "../style/addNewTask.css"
+import "../Style/addNewTask.css"
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import moment from 'moment';

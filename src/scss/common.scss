@@ -1,0 +1,20 @@
+$paddingSpace: 15px 30px;
+$fontWeight: bold;
+
+.header {
+  display: flex;
+  background: #fafafa;
+  margin-bottom: 20px;
+  justify-content: space-between;
+  height: 50px;
+}
+.accordian-link {
+  font-weight: $fontWeight;
+  text-decoration: none;
+  padding: $paddingSpace;
+}
+.signout-btn {
+  font-weight: $fontWeight;
+  cursor: pointer;
+  padding: $paddingSpace;
+}

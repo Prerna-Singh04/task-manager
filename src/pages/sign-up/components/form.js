@@ -1,4 +1,6 @@
 import React from "react";
+import '../../../scss/signUp.scss'
+
 
 class SingnUpForm extends React.Component {
   constructor(props) {
@@ -119,19 +121,20 @@ class SingnUpForm extends React.Component {
   render() {
     const stateData = this.state;
     return (
-      <div className="registration">
-        <h5>Sign Up</h5>
+      // <div className="registration">
+      <div className="registration_page">
+        <h5 className='headline'>Sign Up</h5>
         {stateData.errorMessage ? (
-          <p className="danger text-center">{stateData.errorMessage}</p>
+          <p className="danger">{stateData.errorMessage}</p>
         ) : null}
         {stateData.successMessage ? (
-          <p className="success text-center">{stateData.successMessage}</p>
+          <p className="success">{stateData.successMessage}</p>
         ) : null}
-        <div className="registration_form">
+        <div className="form">
           <input
             type="text"
             name="firstName"
-            className="registration_form_input"
+            className="registration_input"
             placeholder="First Name *"
             value={stateData.firstName}
             onChange={this.handleForm}
@@ -140,7 +143,7 @@ class SingnUpForm extends React.Component {
           <input
             type="text"
             name="lastName"
-            className="registration_form_input"
+            className="registration_input"
             placeholder="Last Name (optional) "
             value={stateData.lastName}
             onChange={this.handleForm}
@@ -149,7 +152,7 @@ class SingnUpForm extends React.Component {
           <input
             type="text"
             name="userName"
-            className="registration_form_input"
+            className="registration_input"
             placeholder="User Name *"
             value={stateData.userName}
             onChange={this.handleForm}
@@ -158,7 +161,7 @@ class SingnUpForm extends React.Component {
           <input
             type="password"
             name="password"
-            className="registration_form_input"
+            className="registration_input"
             placeholder="Password *"
             value={stateData.password}
             onChange={this.handleForm}
@@ -167,18 +170,18 @@ class SingnUpForm extends React.Component {
           <input
             type="password"
             name="confirmPassword"
-            className="registration_form_input"
+            className="registration_input"
             placeholder="Confirm Password *"
             onChange={this.handleForm}
           />
           <button
-            className="registration_form_submit"
+            className="registration_submit"
             onClick={this.registerUser}
           >
             Submit
           </button>
         </div>
-        <p className="info-text">
+        <p className="info_text">
           Already have an account ? <a href="/">Login</a>
         </p>
       </div>

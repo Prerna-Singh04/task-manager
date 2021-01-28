@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../style/style.css";
+import "../Style/style.css";
 import Modal from "react-modal";
 import AddNewTask from "./addNewTask";
 
